@@ -95,8 +95,8 @@ export default function App() {
           {/* ───────── CONTEÚDO ───────── */}
           <div className="col-lg-7 col-xl-8">
             <div className="row g-2 reveal">
-              <div className="col-4"><div className="stat"><b>2+</b><span>Anos de design</span></div></div>
-              <div className="col-4"><div className="stat"><b>{education.filter((e) => e.kind === "cert").length}</b><span>Certificações</span></div></div>
+              <div className="col-4"><div className="stat"><b>2+</b><span>Anos de Experiência</span></div></div>
+              <div className="col-4"><div className="stat"><b>{education.filter((e) => e.kind === "cert").length}+</b><span>Certificações</span></div></div>
               <div className="col-4"><div className="stat"><b>{calcAge(profile.birthDate)}</b><span>Anos de idade</span></div></div>
             </div>
 

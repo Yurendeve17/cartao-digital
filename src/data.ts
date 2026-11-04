@@ -18,12 +18,12 @@ export interface Profile {
 
 export const profile: Profile = {
   name: "Yuren Deve",
-  role: "Designer Gráfico & CEO",
+  role: "Desenvolvedor Web | UI/UX Designer | Designer Gráfico",
   company: "YUDE Agência",
-  tagline: "Criatividade que dá forma à identidade da sua marca.",
+  tagline: "Transformo ideias em experiências visuais e digitais.",
   about: [
-    "Sou Yuren Deve, estudante da licenciatura em Engenharia Informática na Universidade Eduardo Mondlane. Apaixonado por tecnologia e programação.",
-    "Sou designer gráfico com 2 anos de experiência na área. Ao longo desses anos, tive a oportunidade de trabalhar em diversos projetos, desde a criação de identidades visuais até o desenvolvimento de materiais gráficos para campanhas publicitárias. Minha paixão pelo design é o que me motiva a buscar sempre soluções criativas e inovadoras para atender às necessidades dos meus clientes.",
+        "Sou apaixonado por tecnologia e pelo seu potencial de gerar impacto positivo na sociedade. Ao longo da minha formação, tenho desenvolvido competências em programação, design grafico e interfaces de usuários e resolução de problemas, aliando pensamento crítico, disciplina e responsabilidade. Tenho particular interesse no desenvolvimento de software e em tecnologias emergentes, procurando constantemente evoluir através de projetos académicos e estudo autónomo",
+    "Sou designer gráfico com mais de 3 anos de experiência na área. Ao longo desses anos, tive a oportunidade de trabalhar em diversos projetos, desde a criação de identidades visuais até o desenvolvimento de materiais gráficos para campanhas publicitárias. Minha paixão pelo design é o que me motiva a buscar sempre soluções criativas e inovadoras para atender às necessidades dos meus clientes.",
   ],
   phone: "+258821200954",
   email: "yurendeve00@gmail.com",
@@ -66,8 +66,21 @@ export const education: Edu[] = [
 
 export interface Job { when: string; title: string; company: string; points: string[] }
 export const experience: Job[] = [
-  {
-    when: "2024 — Atualmente",
+      {
+      when: "2025 — Atualmente",
+      title: "Fundador & CEO | Diretor Criativo",
+      company: "YUDE AGÊNCIA",
+      points: [
+        "Fundação e liderança da YUDE AGÊNCIA, uma agência de marketing, publicidade, design e tecnologia.",
+        "Desenvolvimento de estratégias criativas e soluções digitais para fortalecer marcas e conectar empresas ao seu público.",
+        "Direção e supervisão de projetos de identidade visual, design gráfico, branding e comunicação publicitária.",
+        "Planeamento e gestão de estratégias de marketing digital e redes sociais.",
+        "Coordenação de projetos, definição de objetivos e desenvolvimento de soluções orientadas para os resultados dos clientes.",
+        "Promoção da inovação, criatividade e transformação digital através de soluções estratégicas e personalizadas."
+      ],
+    },
+    {
+    when: "2025 — Atualmente",
     title: "UI/UX Designer | Frontend Dev",
     company: "Bytnex Tech Solutions",
     points: [
@@ -84,7 +97,7 @@ export const experience: Job[] = [
       "Responsável pela criação e desenvolvimento de identidades visuais completas, desde a concepção do logótipo até à definição de elementos como tipografia, paleta de cores e aplicações institucionais.",
     ],
   },
-];
+  ];
 
 export const languages = [
   { name: "Português", label: "Alto", level: 5 },
