@@ -1,0 +1,2 @@
+Coloque aqui as imagens (.jpg .png .webp .gif) ou vídeos (.mp4 .webm) desta categoria.
+O nome do ficheiro vira o título (ex.: 01-logotipo-yude.jpg -> "Logotipo yude").
