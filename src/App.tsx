@@ -20,15 +20,22 @@ function Section({ id, title, children }: { id?: string; title: string; children
     </section>
   );
 }
-const reduceMotion =
-  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  
+
 export default function App() {
   const [theme, toggleTheme] = useTheme();
   const [toast, setToast] = useToast();
   const [cvOpen, setCvOpen] = useState(false);
   const active = useActiveSection(SECTION_IDS);
   useReveal();
+
+  // Vídeo do topo: garante autoplay mudo (necessário no Android/iPhone)
+  const heroRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = heroRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => { /* bloqueado: fica a foto até tocar */ });
+  }, []);
 
   const share = async () => {
     try {
@@ -59,21 +66,23 @@ export default function App() {
                 </div>
 
                 <div className="photo-wrap">
-                  {profile.heroVideo && !reduceMotion ? (
-                <video
-                  className="photo"
-                  src={profile.heroVideo}
-                  poster={profile.photo}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  aria-label={profile.name}
-                />
-              ) : (
-                <img className="photo" src={profile.photo} alt={profile.name} />
-              )}
+                  {profile.heroVideo ? (
+                    <video
+                      ref={heroRef}
+                      onClick={() => heroRef.current?.play().catch(() => {})}
+                      className="photo"
+                      src={profile.heroVideo}
+                      poster={profile.photo}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                      aria-label={profile.name}
+                    />
+                  ) : (
+                    <img className="photo" src={profile.photo} alt={profile.name} />
+                  )}
                 </div>
 
                 <div className="pc-body text-center">
@@ -111,7 +120,7 @@ export default function App() {
           {/* ───────── CONTEÚDO ───────── */}
           <div className="col-lg-7 col-xl-8">
             <div className="row g-2 reveal">
-              <div className="col-4"><div className="stat"><b>2+</b><span>Anos de Experiência</span></div></div>
+              <div className="col-4"><div className="stat"><b>3+</b><span>Anos de Experiência</span></div></div>
               <div className="col-4"><div className="stat"><b>{education.filter((e) => e.kind === "cert").length}+</b><span>Certificações</span></div></div>
               <div className="col-4"><div className="stat"><b>{calcAge(profile.birthDate)}</b><span>Anos de idade</span></div></div>
             </div>
@@ -215,7 +224,7 @@ export default function App() {
             </Section>
 
             <footer className="text-center text-secondary small mt-5">
-              © {new Date().getFullYear()} {profile.company} · Yuren Deve 
+              © {new Date().getFullYear()} {profile.company} · Yuren Deve
             </footer>
           </div>
         </div>

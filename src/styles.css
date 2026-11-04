@@ -161,3 +161,6 @@ a.contact:hover { border-color: var(--brand); }
 .cert-badge { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; font-size: .62rem; font-weight: 700; padding: 3px 8px; border-radius: 99px; background: var(--glow); color: var(--brand-2); vertical-align: middle; }
 .tech-line { font-size: .66rem; opacity: .85; margin-top: 2px; }
 .detail-hero { height: 150px; display: grid; place-items: center; color: rgba(255,255,255,.85); font-size: 3.4rem; }
+@media (hover: none) {
+  video.photo { mix-blend-mode: normal; }
+}
