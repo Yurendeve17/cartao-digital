@@ -12,6 +12,7 @@ export interface Profile {
   birthDate: string; // AAAA-MM-DD
   birthPlace: string;
   photo: string;
+  heroVideo?: string;
   education: string;
   cv: string; // coloque o seu CV em public/cv.pdf
 }
@@ -32,6 +33,7 @@ export const profile: Profile = {
   birthDate: "2003-03-17",
   birthPlace: "Cidade de Maputo, Moçambique",
   photo: "foto.jpg",
+  heroVideo: "hero.mp4",
   education: "Engenharia Informática — Universidade Eduardo Mondlane (UEM)",
   cv: "cv.pdf",
 };
@@ -101,7 +103,7 @@ export const experience: Job[] = [
 
 export const languages = [
   { name: "Português", label: "Alto", level: 5 },
-  { name: "Inglês", label: "Básico", level: 2 },
+  { name: "Inglês", label: "Básico", level: 3 },
 ];
 
 export interface Service { icon: string; title: string; text: string }

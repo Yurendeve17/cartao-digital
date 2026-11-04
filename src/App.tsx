@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import {
   profile, roles, toolGroups, softSkills, education, experience, languages, services,
@@ -20,7 +20,9 @@ function Section({ id, title, children }: { id?: string; title: string; children
     </section>
   );
 }
-
+const reduceMotion =
+  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
 export default function App() {
   const [theme, toggleTheme] = useTheme();
   const [toast, setToast] = useToast();
@@ -57,7 +59,21 @@ export default function App() {
                 </div>
 
                 <div className="photo-wrap">
-                  <img className="photo" src={profile.photo} alt={profile.name} />
+                  {profile.heroVideo && !reduceMotion ? (
+                <video
+                  className="photo"
+                  src={profile.heroVideo}
+                  poster={profile.photo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  aria-label={profile.name}
+                />
+              ) : (
+                <img className="photo" src={profile.photo} alt={profile.name} />
+              )}
                 </div>
 
                 <div className="pc-body text-center">
@@ -199,7 +215,7 @@ export default function App() {
             </Section>
 
             <footer className="text-center text-secondary small mt-5">
-              © {new Date().getFullYear()} {profile.company} · React + TypeScript + Bootstrap
+              © {new Date().getFullYear()} {profile.company} · Yuren Deve 
             </footer>
           </div>
         </div>
